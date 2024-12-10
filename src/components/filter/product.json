@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_filter_products",
+  "info": {
+    "displayName": "product",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "productType": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product.product"
+    }
+  }
+}

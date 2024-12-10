@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_association_related_qnas",
+  "info": {
+    "displayName": "RelatedQna",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "qnas": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::qna.qna"
+    }
+  }
+}

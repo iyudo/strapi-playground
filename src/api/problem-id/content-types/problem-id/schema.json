@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "problem_ids",
+  "info": {
+    "singularName": "problem-id",
+    "pluralName": "problem-ids",
+    "displayName": "ProblemId"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "problemId": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    }
+  }
+}

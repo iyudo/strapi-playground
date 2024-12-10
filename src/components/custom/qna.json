@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_custom_qnas",
+  "info": {
+    "displayName": "qna"
+  },
+  "options": {},
+  "attributes": {
+    "Question": {
+      "type": "string"
+    },
+    "Answer": {
+      "type": "string"
+    }
+  }
+}

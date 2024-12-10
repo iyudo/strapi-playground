@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "articles",
+  "collectionName": "qnas",
   "info": {
-    "singularName": "article",
-    "pluralName": "articles",
-    "displayName": "article",
+    "singularName": "qna",
+    "pluralName": "qnas",
+    "displayName": "QNA",
     "description": ""
   },
   "options": {
@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "title": {
+    "Question": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -24,73 +24,53 @@
         }
       }
     },
-    "content": {
-      "type": "richtext",
+    "Answer": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       }
+    },
+    "relatedQna": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "association.related-qna"
     },
     "tag": {
       "type": "component",
       "repeatable": true,
-      "component": "filter.tag",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "component": "filter.tag"
     },
     "product": {
       "type": "component",
       "repeatable": false,
-      "component": "filter.product",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
-    },
-    "relatedArticles": {
-      "type": "component",
-      "repeatable": false,
-      "component": "association.related-articles",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "relatedQnas": {
-      "type": "component",
-      "repeatable": false,
-      "component": "association.related-qna",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      },
+      "component": "filter.product"
     },
     "problemId": {
       "type": "component",
-      "repeatable": false,
+      "repeatable": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
       "component": "filter.problem-id"
-    },
-    "policy": {
-      "type": "component",
-      "repeatable": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "custom.policy"
     }
   }
 }
