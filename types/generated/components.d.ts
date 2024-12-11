@@ -55,6 +55,16 @@ export interface CustomQna extends Struct.ComponentSchema {
   };
 }
 
+export interface CustomSection extends Struct.ComponentSchema {
+  collectionName: 'components_custom_sections';
+  info: {
+    displayName: 'Section';
+  };
+  attributes: {
+    Title: Schema.Attribute.String;
+  };
+}
+
 export interface FilterProblemId extends Struct.ComponentSchema {
   collectionName: 'components_filter_problem_ids';
   info: {
@@ -98,6 +108,7 @@ declare module '@strapi/strapi' {
       'custom.another-policy': CustomAnotherPolicy;
       'custom.policy': CustomPolicy;
       'custom.qna': CustomQna;
+      'custom.section': CustomSection;
       'filter.problem-id': FilterProblemId;
       'filter.product': FilterProduct;
       'filter.tag': FilterTag;

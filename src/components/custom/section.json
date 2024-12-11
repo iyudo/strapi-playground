@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_custom_sections",
+  "info": {
+    "displayName": "Section"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    }
+  }
+}

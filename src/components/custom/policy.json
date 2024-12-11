@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_custom_policies",
+  "info": {
+    "displayName": "Policy"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Another": {
+      "type": "string"
+    }
+  }
+}

@@ -13,6 +13,7 @@
   "dependencies": {
     "@ckeditor/strapi-plugin-ckeditor": "^1.1.0",
     "@strapi/plugin-cloud": "5.4.2",
+    "@strapi/plugin-graphql": "^5.5.0",
     "@strapi/plugin-users-permissions": "5.4.2",
     "@strapi/strapi": "5.4.2",
     "pg": "8.8.0",

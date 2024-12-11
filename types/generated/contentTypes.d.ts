@@ -482,8 +482,10 @@ export interface ApiNewArticleNewArticle extends Struct.CollectionTypeSchema {
       'api::new-article.new-article'
     > &
       Schema.Attribute.Private;
+    newTag: Schema.Attribute.Component<'filter.tag', true>;
     policy: Schema.Attribute.Component<'custom.another-policy', true>;
     publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "new_articles",
+  "info": {
+    "singularName": "new-article",
+    "pluralName": "new-articles",
+    "displayName": "NewArticle",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "policy": {
+      "type": "component",
+      "repeatable": true,
+      "component": "custom.another-policy"
+    },
+    "dynamicZone": {
+      "type": "dynamiczone",
+      "components": [
+        "custom.policy",
+        "custom.qna",
+        "filter.tag",
+        "filter.product",
+        "filter.problem-id"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "newTag": {
+      "type": "component",
+      "repeatable": true,
+      "component": "filter.tag"
+    }
+  }
+}
