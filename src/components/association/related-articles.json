@@ -4,11 +4,5 @@
     "displayName": "RelatedArticles"
   },
   "options": {},
-  "attributes": {
-    "articles": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::article.article"
-    }
-  }
+  "attributes": {}
 }

@@ -5,11 +5,5 @@
     "description": ""
   },
   "options": {},
-  "attributes": {
-    "productType": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::product.product"
-    }
-  }
+  "attributes": {}
 }

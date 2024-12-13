@@ -4,93 +4,31 @@
   "info": {
     "singularName": "article",
     "pluralName": "articles",
-    "displayName": "article",
+    "displayName": "Article",
     "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {
-    "i18n": {
-      "localized": true
-    }
-  },
+  "pluginOptions": {},
   "attributes": {
-    "title": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+    "Title": {
+      "type": "string"
     },
-    "content": {
-      "type": "richtext",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+    "dynamic": {
+      "type": "dynamiczone",
+      "components": [
+        "custom.sop",
+        "custom.qna",
+        "custom.policy"
+      ]
     },
-    "tag": {
-      "type": "component",
-      "repeatable": true,
-      "component": "filter.tag",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "product": {
-      "type": "component",
-      "repeatable": false,
-      "component": "filter.product",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "relatedArticles": {
-      "type": "component",
-      "repeatable": false,
-      "component": "association.related-articles",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "relatedQnas": {
-      "type": "component",
-      "repeatable": false,
-      "component": "association.related-qna",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "problemId": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "filter.problem-id"
-    },
-    "policy": {
-      "type": "component",
-      "repeatable": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "custom.policy"
+    "Type": {
+      "type": "enumeration",
+      "enum": [
+        "Hotel",
+        "Flight"
+      ]
     }
   }
 }

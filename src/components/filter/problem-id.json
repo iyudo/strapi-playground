@@ -5,11 +5,5 @@
     "description": ""
   },
   "options": {},
-  "attributes": {
-    "problem_ids": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::problem-id.problem-id"
-    }
-  }
+  "attributes": {}
 }

@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "hotel_articles",
+  "info": {
+    "singularName": "hotel-article",
+    "pluralName": "hotel-articles",
+    "displayName": "HotelArticle"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "qna": {
+      "type": "component",
+      "repeatable": true,
+      "component": "custom.qna"
+    },
+    "SOP": {
+      "type": "component",
+      "repeatable": true,
+      "component": "custom.sop"
+    }
+  }
+}

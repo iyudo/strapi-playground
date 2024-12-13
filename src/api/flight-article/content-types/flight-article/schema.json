@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "flight_articles",
+  "info": {
+    "singularName": "flight-article",
+    "pluralName": "flight-articles",
+    "displayName": "FlightArticle"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Policy": {
+      "type": "component",
+      "repeatable": true,
+      "component": "custom.policy"
+    },
+    "qna": {
+      "type": "component",
+      "repeatable": true,
+      "component": "custom.qna"
+    }
+  }
+}

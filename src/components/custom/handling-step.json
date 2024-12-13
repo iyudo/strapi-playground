@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_custom_handling_steps",
+  "info": {
+    "displayName": "HandlingStep"
+  },
+  "options": {},
+  "attributes": {
+    "Step": {
+      "type": "string"
+    }
+  }
+}

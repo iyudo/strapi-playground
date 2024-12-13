@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_custom_sops",
+  "info": {
+    "displayName": "SOP",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "CaseCategory": {
+      "type": "enumeration",
+      "enum": [
+        "Accommodation Change Management",
+        "Accommodation Has No Contract"
+      ]
+    },
+    "HandlingStep": {
+      "type": "component",
+      "repeatable": true,
+      "component": "custom.handling-step"
+    }
+  }
+}

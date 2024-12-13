@@ -1,15 +1,29 @@
 {
   "collectionName": "components_custom_policies",
   "info": {
-    "displayName": "Policy"
+    "displayName": "Policy",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "Title": {
-      "type": "string"
+    "ProductType": {
+      "type": "enumeration",
+      "enum": [
+        "Flight JL720",
+        "Flight JL721",
+        "Flight JL722"
+      ]
     },
-    "Another": {
-      "type": "string"
+    "DateOfIssue": {
+      "type": "date"
+    },
+    "Guideline": {
+      "type": "blocks"
+    },
+    "ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::article.article"
     }
   }
 }

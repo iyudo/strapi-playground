@@ -373,131 +373,42 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   collectionName: 'articles';
   info: {
     description: '';
-    displayName: 'article';
+    displayName: 'Article';
     pluralName: 'articles';
     singularName: 'article';
   };
   options: {
     draftAndPublish: true;
   };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
   attributes: {
-    content: Schema.Attribute.RichText &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
+    dynamic: Schema.Attribute.DynamicZone<
+      ['custom.sop', 'custom.qna', 'custom.policy']
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::article.article'
-    >;
-    policy: Schema.Attribute.Component<'custom.policy', true> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    problemId: Schema.Attribute.Component<'filter.problem-id', false> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    product: Schema.Attribute.Component<'filter.product', false> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    publishedAt: Schema.Attribute.DateTime;
-    relatedArticles: Schema.Attribute.Component<
-      'association.related-articles',
-      false
     > &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    relatedQnas: Schema.Attribute.Component<'association.related-qna', false> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    tag: Schema.Attribute.Component<'filter.tag', true> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    title: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Title: Schema.Attribute.String;
+    Type: Schema.Attribute.Enumeration<['Hotel', 'Flight']>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
   };
 }
 
-export interface ApiNewArticleNewArticle extends Struct.CollectionTypeSchema {
-  collectionName: 'new_articles';
+export interface ApiFlightArticleFlightArticle
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'flight_articles';
   info: {
-    description: '';
-    displayName: 'NewArticle';
-    pluralName: 'new-articles';
-    singularName: 'new-article';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    dynamicZone: Schema.Attribute.DynamicZone<
-      [
-        'custom.policy',
-        'custom.qna',
-        'filter.tag',
-        'filter.product',
-        'filter.problem-id',
-      ]
-    >;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::new-article.new-article'
-    > &
-      Schema.Attribute.Private;
-    newTag: Schema.Attribute.Component<'filter.tag', true>;
-    policy: Schema.Attribute.Component<'custom.another-policy', true>;
-    publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiProblemIdProblemId extends Struct.CollectionTypeSchema {
-  collectionName: 'problem_ids';
-  info: {
-    displayName: 'ProblemId';
-    pluralName: 'problem-ids';
-    singularName: 'problem-id';
+    displayName: 'FlightArticle';
+    pluralName: 'flight-articles';
+    singularName: 'flight-article';
   };
   options: {
     draftAndPublish: true;
@@ -509,25 +420,25 @@ export interface ApiProblemIdProblemId extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::problem-id.problem-id'
+      'api::flight-article.flight-article'
     > &
       Schema.Attribute.Private;
-    problemId: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique;
+    Policy: Schema.Attribute.Component<'custom.policy', true>;
     publishedAt: Schema.Attribute.DateTime;
+    qna: Schema.Attribute.Component<'custom.qna', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
   };
 }
 
-export interface ApiProductProduct extends Struct.CollectionTypeSchema {
-  collectionName: 'products';
+export interface ApiHotelArticleHotelArticle
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'hotel_articles';
   info: {
-    displayName: 'Product';
-    pluralName: 'products';
-    singularName: 'product';
+    displayName: 'HotelArticle';
+    pluralName: 'hotel-articles';
+    singularName: 'hotel-article';
   };
   options: {
     draftAndPublish: true;
@@ -539,78 +450,12 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::product.product'
+      'api::hotel-article.hotel-article'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    type: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiQnaQna extends Struct.CollectionTypeSchema {
-  collectionName: 'qnas';
-  info: {
-    description: '';
-    displayName: 'QNA';
-    pluralName: 'qnas';
-    singularName: 'qna';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    Answer: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::qna.qna'>;
-    problemId: Schema.Attribute.Component<'filter.problem-id', true> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    product: Schema.Attribute.Component<'filter.product', false> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    publishedAt: Schema.Attribute.DateTime;
-    Question: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    relatedQna: Schema.Attribute.Component<'association.related-qna', false> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    tag: Schema.Attribute.Component<'filter.tag', true> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+    qna: Schema.Attribute.Component<'custom.qna', true>;
+    SOP: Schema.Attribute.Component<'custom.sop', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1127,10 +972,8 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::article.article': ApiArticleArticle;
-      'api::new-article.new-article': ApiNewArticleNewArticle;
-      'api::problem-id.problem-id': ApiProblemIdProblemId;
-      'api::product.product': ApiProductProduct;
-      'api::qna.qna': ApiQnaQna;
+      'api::flight-article.flight-article': ApiFlightArticleFlightArticle;
+      'api::hotel-article.hotel-article': ApiHotelArticleHotelArticle;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

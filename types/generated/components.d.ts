@@ -5,9 +5,7 @@ export interface AssociationRelatedArticles extends Struct.ComponentSchema {
   info: {
     displayName: 'RelatedArticles';
   };
-  attributes: {
-    articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
-  };
+  attributes: {};
 }
 
 export interface AssociationRelatedQna extends Struct.ComponentSchema {
@@ -16,31 +14,32 @@ export interface AssociationRelatedQna extends Struct.ComponentSchema {
     description: '';
     displayName: 'RelatedQna';
   };
-  attributes: {
-    qnas: Schema.Attribute.Relation<'oneToMany', 'api::qna.qna'>;
-  };
+  attributes: {};
 }
 
-export interface CustomAnotherPolicy extends Struct.ComponentSchema {
-  collectionName: 'components_custom_another_policies';
+export interface CustomHandlingStep extends Struct.ComponentSchema {
+  collectionName: 'components_custom_handling_steps';
   info: {
-    description: '';
-    displayName: 'AnotherPolicy';
+    displayName: 'HandlingStep';
   };
   attributes: {
-    policy: Schema.Attribute.Component<'custom.policy', false>;
-    qna: Schema.Attribute.Component<'custom.qna', true>;
+    Step: Schema.Attribute.String;
   };
 }
 
 export interface CustomPolicy extends Struct.ComponentSchema {
   collectionName: 'components_custom_policies';
   info: {
+    description: '';
     displayName: 'Policy';
   };
   attributes: {
-    Another: Schema.Attribute.String;
-    Title: Schema.Attribute.String;
+    DateOfIssue: Schema.Attribute.Date;
+    Guideline: Schema.Attribute.Blocks;
+    ProductType: Schema.Attribute.Enumeration<
+      ['Flight JL720', 'Flight JL721', 'Flight JL722']
+    >;
+    ref: Schema.Attribute.Relation<'oneToOne', 'api::article.article'>;
   };
 }
 
@@ -55,13 +54,17 @@ export interface CustomQna extends Struct.ComponentSchema {
   };
 }
 
-export interface CustomSection extends Struct.ComponentSchema {
-  collectionName: 'components_custom_sections';
+export interface CustomSop extends Struct.ComponentSchema {
+  collectionName: 'components_custom_sops';
   info: {
-    displayName: 'Section';
+    description: '';
+    displayName: 'SOP';
   };
   attributes: {
-    Title: Schema.Attribute.String;
+    CaseCategory: Schema.Attribute.Enumeration<
+      ['Accommodation Change Management', 'Accommodation Has No Contract']
+    >;
+    HandlingStep: Schema.Attribute.Component<'custom.handling-step', true>;
   };
 }
 
@@ -71,12 +74,7 @@ export interface FilterProblemId extends Struct.ComponentSchema {
     description: '';
     displayName: 'ProblemId';
   };
-  attributes: {
-    problem_ids: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::problem-id.problem-id'
-    >;
-  };
+  attributes: {};
 }
 
 export interface FilterProduct extends Struct.ComponentSchema {
@@ -85,9 +83,7 @@ export interface FilterProduct extends Struct.ComponentSchema {
     description: '';
     displayName: 'product';
   };
-  attributes: {
-    productType: Schema.Attribute.Relation<'oneToOne', 'api::product.product'>;
-  };
+  attributes: {};
 }
 
 export interface FilterTag extends Struct.ComponentSchema {
@@ -105,10 +101,10 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'association.related-articles': AssociationRelatedArticles;
       'association.related-qna': AssociationRelatedQna;
-      'custom.another-policy': CustomAnotherPolicy;
+      'custom.handling-step': CustomHandlingStep;
       'custom.policy': CustomPolicy;
       'custom.qna': CustomQna;
-      'custom.section': CustomSection;
+      'custom.sop': CustomSop;
       'filter.problem-id': FilterProblemId;
       'filter.product': FilterProduct;
       'filter.tag': FilterTag;
