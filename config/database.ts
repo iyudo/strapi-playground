@@ -55,6 +55,14 @@ export default ({ env }) => {
       client,
       ...connections[client],
       acquireConnectionTimeout: env.int('DATABASE_CONNECTION_TIMEOUT', 60000),
+    //   settings: {
+    //     runMigrations: false,
+    //     forceMigration: false,
+    //   },
+    // },
+    // settings: {
+    //   runMigrations: false,
+    //   forceMigration: false,
     },
   };
 };
