@@ -1,8 +1,15 @@
 {
   "collectionName": "components_association_related_articles",
   "info": {
-    "displayName": "RelatedArticles"
+    "displayName": "RelatedArticles",
+    "description": ""
   },
   "options": {},
-  "attributes": {}
+  "attributes": {
+    "articles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::article.article"
+    }
+  }
 }

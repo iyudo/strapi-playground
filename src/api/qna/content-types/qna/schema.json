@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "articles",
+  "collectionName": "qnas",
   "info": {
-    "singularName": "article",
-    "pluralName": "articles",
-    "displayName": "Article",
+    "singularName": "qna",
+    "pluralName": "qnas",
+    "displayName": "Qna",
     "description": ""
   },
   "options": {
@@ -12,19 +12,19 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Title": {
+    "ProductType": {
       "type": "string"
     },
-    "Content": {
-      "type": "richtext"
+    "Question": {
+      "type": "string"
+    },
+    "Answer": {
+      "type": "string"
     },
     "Tags": {
       "type": "component",
       "repeatable": true,
       "component": "filter.tag"
-    },
-    "ProductType": {
-      "type": "string"
     },
     "CaseCategories": {
       "type": "component",
@@ -34,10 +34,10 @@
     "Public": {
       "type": "boolean"
     },
-    "RelatedQnas": {
+    "RelatedArticles": {
       "type": "component",
       "repeatable": true,
-      "component": "association.related-qna"
+      "component": "association.related-articles"
     }
   }
 }

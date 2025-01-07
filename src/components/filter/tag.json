@@ -1,11 +1,15 @@
 {
   "collectionName": "components_filter_tags",
   "info": {
-    "displayName": "tag"
+    "displayName": "tag",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "value": {
+      "type": "string"
+    },
+    "Key": {
       "type": "string"
     }
   }

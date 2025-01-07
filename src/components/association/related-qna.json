@@ -5,5 +5,11 @@
     "description": ""
   },
   "options": {},
-  "attributes": {}
+  "attributes": {
+    "qnas": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::qna.qna"
+    }
+  }
 }

@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_filter_case_categories",
+  "info": {
+    "displayName": "CaseCategory"
+  },
+  "options": {},
+  "attributes": {
+    "ProblemId": {
+      "type": "string"
+    }
+  }
+}

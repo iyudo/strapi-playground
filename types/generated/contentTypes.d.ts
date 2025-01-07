@@ -381,110 +381,58 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    CaseCategories: Schema.Attribute.Component<'filter.case-category', true>;
+    Content: Schema.Attribute.RichText;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    dynamic: Schema.Attribute.DynamicZone<
-      ['custom.sop', 'custom.qna', 'custom.policy']
-    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::article.article'
     > &
       Schema.Attribute.Private;
+    ProductType: Schema.Attribute.String;
+    Public: Schema.Attribute.Boolean;
     publishedAt: Schema.Attribute.DateTime;
+    RelatedQnas: Schema.Attribute.Component<'association.related-qna', true>;
+    Tags: Schema.Attribute.Component<'filter.tag', true>;
     Title: Schema.Attribute.String;
-    Type: Schema.Attribute.Enumeration<['Hotel', 'Flight']>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
   };
 }
 
-export interface ApiFlightArticleFlightArticle
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'flight_articles';
+export interface ApiQnaQna extends Struct.CollectionTypeSchema {
+  collectionName: 'qnas';
   info: {
-    displayName: 'FlightArticle';
-    pluralName: 'flight-articles';
-    singularName: 'flight-article';
+    description: '';
+    displayName: 'Qna';
+    pluralName: 'qnas';
+    singularName: 'qna';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
+    Answer: Schema.Attribute.String;
+    CaseCategories: Schema.Attribute.Component<'filter.case-category', true>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::flight-article.flight-article'
-    > &
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::qna.qna'> &
       Schema.Attribute.Private;
-    Policy: Schema.Attribute.Component<'custom.policy', true>;
+    ProductType: Schema.Attribute.String;
+    Public: Schema.Attribute.Boolean;
     publishedAt: Schema.Attribute.DateTime;
-    qna: Schema.Attribute.Component<'custom.qna', true>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiHotelArticleHotelArticle
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'hotel_articles';
-  info: {
-    displayName: 'HotelArticle';
-    pluralName: 'hotel-articles';
-    singularName: 'hotel-article';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::hotel-article.hotel-article'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    qna: Schema.Attribute.Component<'custom.qna', true>;
-    SOP: Schema.Attribute.Component<'custom.sop', true>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiNewArticleNewArticle extends Struct.CollectionTypeSchema {
-  collectionName: 'new_articles';
-  info: {
-    displayName: 'NewArticle';
-    pluralName: 'new-articles';
-    singularName: 'new-article';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::new-article.new-article'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    Rank: Schema.Attribute.Integer;
-    Title: Schema.Attribute.String;
+    Question: Schema.Attribute.String;
+    RelatedArticles: Schema.Attribute.Component<
+      'association.related-articles',
+      true
+    >;
+    Tags: Schema.Attribute.Component<'filter.tag', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1001,9 +949,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::article.article': ApiArticleArticle;
-      'api::flight-article.flight-article': ApiFlightArticleFlightArticle;
-      'api::hotel-article.hotel-article': ApiHotelArticleHotelArticle;
-      'api::new-article.new-article': ApiNewArticleNewArticle;
+      'api::qna.qna': ApiQnaQna;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
