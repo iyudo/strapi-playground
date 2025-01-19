@@ -1,0 +1,17 @@
+{
+    "Resources": [
+        {
+            "TargetService": {
+                "Type": "AWS::ECS::Service",
+                "Properties": {
+                    "PlatformVersion": "1.4.0",
+                    "TaskDefinition": "THIS_VALUE_DOESNT_MATTER__WILL_BE_UPDATED_BY_THE_DEPLOYMENT_PIPELINE",
+                    "LoadBalancerInfo": {
+                        "ContainerName": "cxpcms-app",
+                        "ContainerPort": 1337
+                    }
+                }
+            }
+        }
+    ]
+}
