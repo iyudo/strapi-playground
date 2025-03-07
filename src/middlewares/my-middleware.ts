@@ -33,7 +33,12 @@ export default (config, { strapi }) => {
         //     context.request.body = {
         //         data: context.request.body,
         //     };
+        } else if (context.request.url.startsWith('/admin/users')) {
+            // console.log(context);
+            // console.log(context.request.body);
+
         }
+
         return next();
     };
 };

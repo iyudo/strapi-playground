@@ -4,4 +4,5 @@ export default ({ env }) => ({
   app: {
     keys: env.array('APP_KEYS'),
   },
+  url: env('SOMETHING', 'http://localhost:1337'),
 });
